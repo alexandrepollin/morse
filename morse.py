@@ -30,10 +30,14 @@ ALPHABET = {
     '--..': 'Z'
 }
 
-def decode(message):
+def decode(self, message):
     if message == "":
-        return ""
+         return ""
+    words = message.split(" / ")
+    decoded_words = [self.decode_word(word) for word in words]
+    return ' '.join(decoded_words)
 
-    symbols = message.split(" ")
-    letters = [ALPHABET[s] for s in symbols]
+def decode_word(self, word):
+    symbols = word.split(" ")
+    letters = [self.ALPHABET[s] for s in symbols]
     return ''.join(letters)
